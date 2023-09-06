@@ -3,8 +3,12 @@
 -- Create tables
 CREATE TABLE IF NOT EXISTS professor
 (
-    
+    p_email VARCHAR(50) NOT NULL,
+    p_name VARCHAR(50) NOT NULL,
+    office VARCHAR(20) NOT NULL UNIQUE,
+    PRIMARY KEY(p_email)
 );
+
 
 CREATE TABLE IF NOT EXISTS student
 (
@@ -30,13 +34,6 @@ CREATE TABLE IF NOT EXISTS enroll
     PRIMARY KEY(c_number, s_email)
 );
 
-CREATE TABLE IF NOT EXISTS professor
-(
-    p_email VARCHAR(50) NOT NULL,
-    p_name VARCHAR(50) NOT NULL,
-    office VARCHAR(20) NOT NULL UNIQUE,
-    PRIMARY KEY(p_email)
-);
 
 
 -- Create FKs
@@ -60,3 +57,4 @@ ALTER TABLE enroll
     
 
 -- Create Indexes
+

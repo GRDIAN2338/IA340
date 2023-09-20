@@ -39,3 +39,29 @@ delete from professor
 where p_email='p1@jmu.edu'
 /* Q2: You have to modify the course table before deleting the data from the professor table because 'p_email' has the primary key.*/
 
+--Q2.7
+select * from enroll
+
+--Q2.8
+select c_number, count(*) as num_student
+from enroll
+group by c_number
+order by num_student desc
+limit 1
+
+--Q2.9
+select professor.p_name,
+	course.c_name
+from professor
+inner join course
+on professor.p_email = course.p_email
+
+--Q2.10
+SELECT professor.p_name, 
+	COUNT(course.c_name) as number_of_courses
+FROM professor
+inner join course
+on professor.p_email=course.p_email
+GROUP BY professor.p_name
+ORDER BY number_of_courses DESC
+LIMIT 1;
